@@ -1,0 +1,256 @@
+{% from "components/variables.njk" import defaults %}
+
+{% extends "components/template.njk" %}
+
+{% set page_title = "Register" %}
+{% set enable_guest = true %}
+{% set enable_container_fluid = true %}
+{% set enable_header = false %}
+{% set enable_footer = false %}
+{% set js_links = [
+  "assets/app/pages/pages/register.js" | url
+] %}
+
+{% block content %}
+  <div class="row g-0 align-items-center justify-content-center h-100">
+    <div class="col-sm-8 col-md-6 col-lg-4 col-xl-3">
+
+      <!-- BEGIN Portlet -->
+      <div class="portlet">
+        <div class="portlet-body">
+          <div class="text-center mt-4 mb-5">
+
+            <!-- BEGIN Avatar -->
+            <div class="avatar avatar-label-primary avatar-circle widget12">
+              <div class="avatar-display">
+                <i class="fa fa-user-alt"></i>
+              </div>
+            </div>
+            <!-- END Avatar -->
+
+          </div>
+
+          <!-- BEGIN Form -->
+          <form class="d-grid gap-3" id="register-form">
+
+            <!-- BEGIN Row -->
+            <div class="row g-3">
+              <div class="col-sm-6 validation-container">
+
+                <!-- BEGIN Form Floating -->
+                <div class="form-floating">
+                  <input class="form-control form-control-lg" type="text" id="first-name" name="firstName" placeholder="Please insert your first name">
+                  <label for="first-name">First name</label>
+                </div>
+                <!-- END Form Floating -->
+
+              </div>
+              <div class="col-sm-6 validation-container">
+
+                <!-- BEGIN Form Floating -->
+                <div class="form-floating">
+                  <input class="form-control form-control-lg" type="text" id="last-name" name="lastName" placeholder="Please insert your last name">
+                  <label for="last-name">Last name</label>
+                </div>
+                <!-- END Form Floating -->
+
+              </div>
+            </div>
+            <!-- BEGIN Row -->
+
+            <!-- BEGIN Validation Container -->
+            <div class="validation-container">
+
+              <!-- BEGIN Form Floating -->
+              <div class="form-floating">
+                <input class="form-control form-control-lg" type="email" id="email" name="email" placeholder="Please insert your email">
+                <label for="email">Email</label>
+              </div>
+              <!-- END Form Floating -->
+
+            </div>
+            <!-- END Validation Container -->
+            
+            <!-- BEGIN Validation Container -->
+            <div class="validation-container">
+
+              <!-- BEGIN Form Floating -->
+              <div class="form-floating">
+                <input class="form-control form-control-lg" type="password" id="password" name="password" placeholder="Please provide your password">
+                <label for="password">Password</label>
+              </div>
+              <!-- END Form Floating -->
+
+            </div>
+            <!-- END Validation Container -->
+
+            <!-- BEGIN Validation Container -->
+            <div class="validation-container">
+
+              <!-- BEGIN Form Floating -->
+              <div class="form-floating">
+                <input class="form-control form-control-lg" type="password" id="password-confirm" name="passwordConfirm" placeholder="Repeat your password">
+                <label for="password-confirm">Confirm password</label>
+              </div>
+              <!-- END Form Floating -->
+
+            </div>
+            <!-- END Validation Container -->
+
+            <!-- BEGIN Validation Container -->
+            <div class="validation-container">
+              
+              <!-- BEGIN Form Check -->
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="agreement" name="agreement">
+                <label class="form-check-label" for="agreement">Accept agreement</label>
+              </div>
+              <!-- END Form Check -->
+            
+            </div>
+            <!-- END Validation Container -->
+
+            <!-- BEGIN Flex -->
+            <div class="d-flex align-items-center justify-content-between">
+              <span>Already have an account? <a href="{{ 'login.html' | url }}">Login</a></span>
+              <button type="submit" class="btn btn-label-primary btn-lg btn-widest" id="register-button">Register</button>
+            </div>
+            <!-- END Flex -->
+
+          </form>
+          <!-- END Form -->
+
+        </div>
+      </div>
+      <!-- END Portlet -->
+
+    </div>
+  </div>
+  <script type="module">
+    import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+
+    // Form submit handler
+    const submitHandler = async () => {
+
+      // Get register button element
+      const registerButton = $("#register-button");
+
+      // Create register button spinner element
+      const registerSpinner = $("<span>").addClass("spinner-border spinner-border-sm me-2");
+      
+      // Add spinner to register button
+      registerButton.prepend(registerSpinner);
+
+      // Disable register button
+      registerButton.attr('disabled', true);
+
+      // Get all inputs elements
+      const firstNameInput = document.getElementsByName('firstName')[0];
+      const lastNameInput = document.getElementsByName('lastName')[0];
+      const emailInput = document.getElementsByName('email')[0];
+      const passwordInput = document.getElementsByName('password')[0];
+      
+      try {
+
+        // Try to create user with Firebase
+        const userCredential = await createUserWithEmailAndPassword(window.firebaseAuth, emailInput.value, passwordInput.value);
+
+        // Update user profile
+        await updateProfile(userCredential.user, {
+          displayName: `${firstNameInput.value} ${lastNameInput.value}`,
+        });
+
+        // Define URL parameters instance
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectUrl = urlParams.get('redirect');
+
+        // Redirect to home page or URL from the parameter
+        window.location.replace(redirectUrl ? redirectUrl : "{{ defaults.home_path }}");
+      } catch (error) {
+
+        // Show alert when error
+        swal.fire({ text: error.message, icon: "error" });
+      }
+
+      // Remove spinner from register button
+      registerButton.find(registerSpinner).remove();
+
+      // Enable register button
+      registerButton.attr('disabled', false);
+    }
+
+    // Initialize form validation
+    $("#register-form").validate({
+      rules: {
+        firstName: {
+          required: true,
+          minlength: 5,
+        },
+        lastName: {
+          required: true,
+          minlength: 5,
+        },
+        email: {
+          required: true,
+          email: true,
+        },
+        password: {
+          required: true,
+          minlength: 6,
+        },
+        passwordConfirm: {
+          required: true,
+          minlength: 6,
+          equalTo: "#password",
+        },
+        agreement: {
+          required: true,
+        },
+      },
+      messages: {
+        firstName: {
+          required: "Please enter your first name",
+          minlength: $.validator.format("Please enter at least {0} characters"), // Format validation message
+        },
+        lastName: {
+          required: "Please enter your last name",
+          minlength: $.validator.format("Please enter at least {0} characters"), // Format validation message
+        },
+        email: {
+          required: "Please enter your email",
+          email: "Your email is not valid",
+        },
+        password: {
+          required: "Please provide your password",
+          minlength: $.validator.format("Please enter at least {0} characters"), // Format validation message
+        },
+        passwordConfirm: {
+          required: "Please repeat your password",
+          minlength: $.validator.format("Please enter at least {0} characters"), // Format validation message
+          equalTo: "Your password is not match",
+        },
+        agreement: {
+          required: "Check to accept the agreement",
+        },
+      },
+      highlight: (element, errorClass, validClass) => {
+        $(element).addClass('is-invalid');
+        $(element).removeClass('is-valid');
+      },
+      unhighlight: (element, errorClass, validClass) => {
+        $(element).removeClass('is-invalid');
+        $(element).addClass('is-valid');
+      },
+      errorPlacement: (error, element) => {
+        error.addClass('invalid-feedback');
+        element.closest('.validation-container').append(error);
+      },
+      submitHandler: submitHandler,
+    })
+
+    // Prevent default form submitted behavior
+    $("#register-form").on("submit", (e) => {
+      e.preventDefault();
+    });
+  </script>
+{% endblock %}

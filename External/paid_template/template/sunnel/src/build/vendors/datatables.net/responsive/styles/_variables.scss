@@ -1,0 +1,39 @@
+$datatable-responsive-icon-collapsed:             "\f0fe" !default;
+$datatable-responsive-icon-expand:                "\f146" !default;
+$datatable-responsive-icon-size:                  $font-size-lg !default;
+$datatable-responsive-icon-color:                 $text-level-1 !default;
+$datatable-responsive-icon-active-color:          $primary !default;
+$datatable-responsive-icon-spacer:                $spacer * .5 !default;
+
+$datatable-responsive-list-padding-y:             $spacer * .5 !default;
+$datatable-responsive-list-border-width:          $border-width !default;
+$datatable-responsive-list-border-color:          $border-color !default;
+
+$datatable-responsive-title-min-width:            8rem !default;
+$datatable-responsive-title-color:                $text-level-3 !default;
+$datatable-responsive-title-font-size:            $font-size-base !default;
+$datatable-responsive-title-font-weight:          $font-weight-bold !default;
+
+$datatable-responsive-data-color:                 $text-level-1 !default;
+$datatable-responsive-data-font-size:             $font-size-base !default;
+$datatable-responsive-data-font-weight:           $font-weight-normal !default;
+
+$datatable-responsive-modal-width:                50% !default;
+$datatable-responsive-modal-width-sm:             95% !default;
+$datatable-responsive-modal-height:               50% !default;
+$datatable-responsive-modal-bg:                   $modal-content-bg !default;
+$datatable-responsive-modal-color:                $modal-content-color !default;
+$datatable-responsive-modal-padding:              $spacer !default;
+$datatable-responsive-modal-border-width:         $modal-content-border-width !default;
+$datatable-responsive-modal-border-color:         $modal-content-border-color !default;
+$datatable-responsive-modal-border-radius:        $modal-content-border-radius !default;
+$datatable-responsive-modal-backdrop-bg:          $modal-backdrop-bg !default;
+$datatable-responsive-modal-backdrop-opacity:     $modal-backdrop-opacity !default;
+
+$datatable-responsive-modal-close-dimension:      $btn-icon-dimension !default;
+$datatable-responsive-modal-close-bg:             $bg-level-2 !default;
+$datatable-responsive-modal-close-color:          $text-level-3 !default;
+$datatable-responsive-modal-close-hover-bg:       $component-active-bg !default;
+$datatable-responsive-modal-close-hover-color:    $component-active-color !default;
+$datatable-responsive-modal-close-border-radius:  $btn-border-radius !default;
+$datatable-responsive-modal-close-offset:         $spacer * .5 !default;

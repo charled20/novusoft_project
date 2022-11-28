@@ -1,0 +1,28 @@
+{% extends "components/template.njk" %}
+
+{% set page_title = "Dashboard" %}
+{% set enable_auth = true %}
+{% set js_links = [
+  "assets/app/pages/home.js" | url
+] %}
+
+{% block content %}
+  <div class="row portlet-row-fill-xl">
+    <div class="col-xl-8">
+      {% include "components/widgets/widget-26.njk" %}
+    </div>
+    <div class="col-xl-4">
+      {% include "components/widgets/widget-24.njk" %}
+    </div>
+  </div>
+  <div class="row portlet-row-fill-md">
+    <div class="col-md-6">
+      {% include "components/widgets/widget-10.njk" %}
+      {% include "components/widgets/widget-14.njk" %}
+    </div>
+    <div class="col-md-6">
+      {% include "components/widgets/widget-9.njk" %}
+      {% include "components/widgets/widget-15.njk" %}
+    </div>
+  </div>
+{% endblock %}

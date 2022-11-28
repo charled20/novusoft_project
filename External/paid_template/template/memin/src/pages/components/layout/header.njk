@@ -1,0 +1,93 @@
+{% from "components/variables.njk" import defaults %}
+
+<!-- BEGIN Header -->
+<div class="header">
+
+  <!-- BEGIN Header Holder -->
+  <div class="header-holder header-holder-desktop">
+    <div class="header-container {{ container_class }}">
+      <div class="header-wrap">
+        <h4 class="header-brand">{{ defaults.brand_name }}</h4>
+      </div>
+      <i class="header-divider"></i>
+      <div class="header-wrap header-wrap-block justify-content-start">
+        {% include "./header-nav.njk" %}
+      </div>
+      <div class="header-wrap hstack gap-2">
+        <button class="btn btn-label-primary btn-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-todo">
+          <i class="far fa-calendar-alt"></i>
+        </button>
+        <button class="btn btn-label-primary btn-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-settings">
+          <i class="far fa-list-alt"></i>
+        </button>
+
+        <!-- BEGIN Dropdown -->
+        <div class="dropdown">
+          <button class="btn btn-flat-primary widget13" data-bs-toggle="dropdown">
+            <div class="widget13-text">
+              Hi <strong>User</strong>
+            </div>
+
+            <!-- BEGIN Avatar -->
+            <div class="avatar avatar-info widget13-avatar">
+              <div class="avatar-display">
+                <i class="fa fa-user-alt"></i>
+              </div>
+            </div>
+            <!-- END Avatar -->
+
+          </button>
+          <div class="dropdown-menu dropdown-menu-wide dropdown-menu-end dropdown-menu-animated overflow-hidden py-0">
+            {% include "./header-user.njk" %}
+          </div>
+        </div>
+        <!-- END Dropdown -->
+
+      </div>
+    </div>
+  </div>
+  <!-- END Header Holder -->
+
+  <!-- BEGIN Header Holder -->
+  <div class="header-holder header-holder-mobile">
+    <div class="header-container {{ container_class }}">
+      <div class="header-wrap header-wrap-block justify-content-start">
+        <h4 class="header-brand">{{ defaults.brand_name }}</h4>
+      </div>
+      <div class="header-wrap hstack gap-2">
+        <button class="btn btn-label-primary btn-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-todo">
+          <i class="far fa-calendar-alt"></i>
+        </button>
+        <button class="btn btn-label-primary btn-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navigation">
+          <i class="fa fa-bars"></i>
+        </button>
+
+        <!-- BEGIN Dropdown -->
+        <div class="dropdown">
+          <button class="btn btn-flat-primary widget13" data-bs-toggle="dropdown">
+            <div class="widget13-text">
+              Hi <strong>User</strong>
+            </div>
+
+            <!-- BEGIN Avatar -->
+            <div class="avatar avatar-info widget13-avatar">
+              <div class="avatar-display">
+                <i class="fa fa-user-alt"></i>
+              </div>
+            </div>
+            <!-- END Avatar -->
+
+          </button>
+          <div class="dropdown-menu dropdown-menu-wide dropdown-menu-end dropdown-menu-animated overflow-hidden py-0">
+            {% include "./header-user.njk" %}
+          </div>
+        </div>
+        <!-- END Dropdown -->
+
+      </div>
+    </div>
+  </div>
+  <!-- END Header Holder -->
+
+</div>
+<!-- END Header -->

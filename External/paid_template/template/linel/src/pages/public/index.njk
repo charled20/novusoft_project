@@ -1,0 +1,55 @@
+{% extends "components/template.njk" %}
+
+{% set page_title = "Dashboard" %}
+{% set enable_auth = true %}
+{% set js_links = [
+  "assets/app/pages/home.js" | url
+] %}
+
+{% block content %}
+  <div class="row portlet-row-fill-xl">
+    <div class="col-xl-7">
+      <div class="row">
+        <div class="col-md-8">
+          {% include "components/widgets/widget-22.njk" %}
+        </div>
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-sm-6 col-md-12">
+              {% include "components/widgets/widget-32.njk" %}
+            </div>
+            <div class="col-sm-6 col-md-12">
+              {% include "components/widgets/widget-31.njk" %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-5">
+      {% include "components/widgets/widget-2.njk" %}
+    </div>
+  </div>
+  <div class="row portlet-row-fill-xl">
+    <div class="col-xl-5">
+      {% include "components/widgets/widget-27.njk" %}
+    </div>
+    <div class="col-xl-7">
+      <div class="row">
+        <div class="col-12">
+          {% include "components/widgets/widget-26.njk" %}
+        </div>
+      </div>
+      <div class="row portlet-row-fill-md">
+        <div class="col-md-4">
+          {% include "components/widgets/widget-28.njk" %}
+        </div>
+        <div class="col-md-4">
+          {% include "components/widgets/widget-29.njk" %}
+        </div>
+        <div class="col-md-4">
+          {% include "components/widgets/widget-34.njk" %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

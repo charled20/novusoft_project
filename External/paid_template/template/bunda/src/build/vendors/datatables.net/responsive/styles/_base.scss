@@ -1,0 +1,152 @@
+.dataTable {
+  &.dtr-inline.collapsed {
+    > tbody > tr {
+      .child,
+      .dataTables_empty {
+        cursor: default !important;
+
+        &:before {
+          display: none !important;
+        }
+      }
+
+      .dtr-control {
+        position: relative;
+        white-space: nowrap;
+        padding-left: $datatable-responsive-icon-spacer;
+        cursor: pointer;
+        @include icon {
+          content: $datatable-responsive-icon-collapsed;
+          color: $datatable-responsive-icon-color;
+          @include font-size($datatable-responsive-icon-size);
+          margin-right: $datatable-responsive-icon-spacer;
+        }
+      }
+
+      &.parent > .dtr-control:before {
+        color: $datatable-responsive-icon-active-color;
+        content: $datatable-responsive-icon-expand;
+      }
+    }
+  }
+
+  &.dtr-column {
+    tbody tr {
+      .control {
+        cursor: pointer;
+        @include icon {
+          content: $datatable-responsive-icon-collapsed;
+          color: $datatable-responsive-icon-color;
+          @include font-size($datatable-responsive-icon-size);
+          margin-right: $datatable-responsive-icon-spacer;
+        }
+      }
+
+      &.parent .control:before {
+        content: $datatable-responsive-icon-expand;
+        color: $datatable-responsive-icon-active-color;
+      }
+    }
+  }
+
+  .child {
+    .dtr-details {
+      display: inline-block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+
+      > li {
+        padding: $datatable-responsive-list-padding-y 0;
+        border-bottom: $datatable-responsive-list-border-width solid $datatable-responsive-list-border-color;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .dtr-title {
+      display: inline-block;
+      min-width: $datatable-responsive-title-min-width;
+      color: $datatable-responsive-title-color;
+      @include font-size($datatable-responsive-title-font-size);
+      font-weight: $datatable-responsive-title-font-weight;
+    }
+
+    .dtr-data {
+      display: inline-block;
+      color: $datatable-responsive-data-color;
+      @include font-size($datatable-responsive-data-font-size);
+      font-weight: $datatable-responsive-data-font-weight;
+    }
+  }
+}
+
+.dtr-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: $zindex-modal;
+}
+
+.dtr-modal-display {
+  position: absolute;
+  width: $datatable-responsive-modal-width;
+  height: $datatable-responsive-modal-height;
+  color: $datatable-responsive-modal-color;
+  background: $datatable-responsive-modal-bg;
+  border: $datatable-responsive-modal-border-width solid $datatable-responsive-modal-border-color;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: $zindex-modal + 1;
+  @include border-radius($datatable-responsive-modal-border-radius);
+}
+
+.dtr-modal-content {
+  position: relative;
+  padding: $datatable-responsive-modal-padding;
+}
+
+.dtr-modal-close {
+  position: absolute;
+  width: $datatable-responsive-modal-close-dimension;
+  height: $datatable-responsive-modal-close-dimension;
+  color: $datatable-responsive-modal-close-color;
+  background: $datatable-responsive-modal-close-bg;
+  text-align: center;
+  top: $datatable-responsive-modal-close-offset;
+  right: $datatable-responsive-modal-close-offset;
+  cursor: pointer;
+  @include border-radius($datatable-responsive-modal-close-border-radius);
+
+  &:hover {
+    color: $datatable-responsive-modal-close-hover-color;
+    background: $datatable-responsive-modal-close-hover-bg;
+  }
+}
+
+.dtr-modal-background {
+  position: fixed;
+  background: $datatable-responsive-modal-backdrop-bg;
+  opacity: $datatable-responsive-modal-backdrop-opacity;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $zindex-modal;
+}
+
+.dtr-bs-modal .table tr:first-child td {
+  border-top: none;
+}
+@include media-breakpoint-down("md") {
+  .dtr-modal-display {
+    width: $datatable-responsive-modal-width-sm;
+  }
+}

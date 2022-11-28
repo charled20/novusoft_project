@@ -1,0 +1,26 @@
+{% from "components/variables.njk" import defaults %}
+
+<script type="module">
+  import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+
+  // Get user id from local storage
+  const userId = localStorage.getItem("firebase_user_id");
+
+  // Check whether user id is not existed
+  if (!userId) {
+   
+    // Redirect to login page
+    window.location.replace("{{ defaults.login_path }}");
+  }
+
+  // Set auth observer
+  onAuthStateChanged(window.firebaseAuth, (user) => {
+
+    // Check user is not logged in
+    if (!user) {
+      
+      // Redirect to login page
+      window.location.replace("{{ defaults.login_path }}");
+    }
+  });
+</script>

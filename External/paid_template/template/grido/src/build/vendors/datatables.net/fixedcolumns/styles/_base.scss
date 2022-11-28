@@ -1,0 +1,55 @@
+th,
+td {
+  &.dtfc-fixed-left,
+  &.dtfc-fixed-right {
+    z-index: 1;
+  }
+}
+
+.dtfc-right-top-blocker,
+.dtfc-left-top-blocker {
+  margin-top: $datatable-top-blocker-spacer;
+  border-bottom: $datatable-blocker-border-width solid $datatable-blocker-border-color;
+}
+
+.dataTable.table-bordered.dtfc-has-left,
+.dataTables_scroll.dtfc-has-left .table-bordered {
+  border-left: none;
+}
+
+.table-bordered tr th:first-child {
+  .dataTables_scrollFootInner &,
+  .dataTables_scrollHeadInner & {
+    border-left: $datatable-blocker-border-width solid $datatable-blocker-border-color !important;
+  }
+}
+
+.dt-rowReorder-moving {
+  .dtfc-fixed-left,
+  .dtfc-fixed-right {
+    border-top: $datatable-reorder-border-width solid $datatable-reorder-border-color !important;
+    border-bottom: $datatable-reorder-border-width solid $datatable-reorder-border-color !important;
+  }
+
+  .dtfc-fixed-left:first-child {
+    border-left: $datatable-reorder-border-width solid $datatable-reorder-border-color !important;
+  }
+
+  .dtfc-fixed-right:last-child {
+    border-right: $datatable-reorder-border-width solid $datatable-reorder-border-color !important;
+  }
+}
+
+.dataTable th {
+  border-bottom-color: $datatable-blocker-border-color;
+}
+
+.dataTable.table-bordered.dtfc-has-left tr td {
+  border-left-color: $table-border-color;
+}
+
+.dataTables_scrollBody thead tr,
+.DTFC_LeftBodyLiner thead tr,
+.DTFC_RightBodyLiner thead tr {
+  height: 0px !important;
+}

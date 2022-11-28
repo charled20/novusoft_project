@@ -1,0 +1,86 @@
+// Base styles
+.header {
+	position: relative;
+	display: block;
+	height: auto !important;
+	z-index: $zindex-header;
+}
+
+.header-holder {
+	position: relative;
+	background: $header-bg;
+}
+
+.header-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+	padding-top: $header-container-padding-y;
+	padding-bottom: $header-container-padding-y;
+}
+
+.header-wrap {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
+
+	&.header-wrap-block { flex: 1; }
+}
+
+.header-brand {
+	color: $header-brand-color;
+	font-size: $header-brand-font-size;
+	font-weight: $header-brand-font-weight;
+	padding: 0;
+	margin: 0;
+}
+
+.header-divider {
+	width: $header-divider-width;
+	height: $header-divider-height;
+	background: $header-divider-color;
+	margin: 0 $header-divider-margin-x;
+}
+
+// Override .nav-tabs element
+.header-nav {
+	position: absolute;
+	margin-right: $header-nav-spacer;
+	margin-left: $header-nav-spacer;
+	bottom: 0;
+
+	.nav-link {
+		padding-bottom: $nav-link-padding-y + $header-container-padding-y;
+
+		&,
+		&:focus,
+    &:hover,
+    &.active {
+			color: $header-nav-color;
+	  }
+
+		&:hover {
+			color: $header-nav-hover-color !important;
+			background: $header-nav-hover-bg !important;
+    }
+  }
+
+  .nav-link.active,
+  .nav-link.show,
+	.show > .nav-link {
+		color: $header-nav-active-color !important;
+		background: $header-nav-active-bg !important;
+	}
+}
+
+// Breakpoints for hiding .header-holder element
+@include media-breakpoint-down($layout-breakpoint-mobile-desktop) {
+	.header-holder-desktop { display: none; }
+}
+
+@include media-breakpoint-up($layout-breakpoint-mobile-desktop) {
+	.header-holder-mobile { display: none; }
+}

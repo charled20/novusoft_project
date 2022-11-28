@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Request HTML</title>
+    <style>
+        #div-left{
+            width: 50%; 
+            float:left;
+        }
+        #div-right{
+            width: 35%; 
+            float:right;
+            margin-right: 10px;
+        }
+        table,th,td{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="div-left">
+            <table style="border: 0px;">
+                <tr><td style="border: 0px;">Requester</td><td style="border: 0px;"><input style="width: 50px;" type="text"><input style="margin-left: 5px; width: 105px;" type="text"></td></tr>
+                <tr><td style="border: 0px;">Requester Name</td><td style="border: 0px;"><input type="text"></td></tr>
+                <tr><td style="border: 0px;">Branch</td><td style="border: 0px;"><input type="text"></td></tr>
+                <tr><td style="border: 0px;">Department</td><td style="border: 0px;"><input type="text"></td></tr>
+                <tr><td style="border: 0px;">Email Address</td><td style="border: 0px;"><input type="text"></td></tr>
+            </table>
+        </div>
+        <div id="div-right">
+            <table style="border: 0px;">
+                <tr><td style="border: 0px;">No.</td><td style="border: 0px;"><input style="width: 50px;" type="text"><input style="margin-left: 7px;" type="text"></td></tr>
+                <tr><td style="border: 0px;">Status</td><td style="border: 0px;"><input style="margin-left:65px;" type="text"></td></tr>
+                <tr><td style="border: 0px;">Posting Date</td><td style="border: 0px;"><input style="margin-left:65px;" type="text"></td></tr>
+                <tr><td style="border: 0px;">Valid Until</td><td style="border: 0px;"><input style="margin-left:65px;" type="text"></td></tr>
+                <tr><td style="border: 0px;">Document Date</td><td style="border: 0px;"><input style="margin-left:65px;" type="text"></td></tr>
+                <tr><td style="border: 0px;">Required Date</td><td style="border: 0px;"><input style="margin-left:65px;" type="text"></td></tr>
+            </table>
+        </div>
+    </div>
+
+    
+
+    <div style="clear: both; padding-top: 40px;">
+        <table style="width: 100%; ">
+            <tr>
+              <th>Item Code</th>
+              <th>Required Date</th>
+              <th>Required Qty.</th>
+              <th>Info Price</th>
+              <th>Discount %</th>
+              <th>Tax Code</th>
+              <th>Total</th>
+            </tr>
+            <tr>
+              <td>ACC-0046</td>
+              <td>08/04/2022</td>
+              <td>3</td>
+              <td>200.00</td>
+              <td>0.00</td>
+              <td></td>
+              <td>600.00</td>
+            </tr>
+            <tr>
+                <td>ACC-0066</td>
+                <td>08/24/2022</td>
+                <td>6</td>
+                <td>600.00</td>
+                <td>0.00</td>
+                <td></td>
+                <td>3,600.00</td>
+            </tr>
+            <tr>
+                <td>ACC-0032</td>
+                <td>08/05/2022</td>
+                <td>5</td>
+                <td>1000.00</td>
+                <td>0.00</td>
+                <td></td>
+                <td>5,000.00</td>
+              </tr>
+          </table>
+    </div>
+
+</body>
+</html>

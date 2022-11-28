@@ -1,0 +1,98 @@
+{% from "components/variables.njk" import defaults %}
+
+<!-- BEGIN Header -->
+<div class="header">
+
+  <!-- BEGIN Desktop Sticky Header -->
+  <div class="sticky-header" id="sticky-header-desktop">
+
+    <!-- BEGIN Header Holder -->
+    <div class="header-holder header-holder-desktop">
+      <div class="header-container {{ container_class }}">
+        <div class="header-wrap">
+          <h4 class="header-brand">{{ defaults.brand_name }}</h4>
+        </div>
+        <i class="header-divider"></i>
+        <div class="header-wrap header-wrap-block justify-content-start">
+          {% include "./header-nav.njk" %}
+        </div>
+        <div class="header-wrap hstack gap-2">
+          
+          <!-- BEGIN Dropdown -->
+          <div class="dropdown">
+            <button class="btn btn-label-info btn-icon" data-bs-toggle="dropdown">
+              <i class="far fa-bell"></i>
+              <div class="btn-marker">
+                <i class="marker marker-dot text-danger"></i>
+              </div>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end dropdown-menu-wide dropdown-menu-animated overflow-hidden py-0">
+              {% include "./header-notification.njk" %}
+            </div>
+          </div>
+          <!-- END Dropdown -->
+
+          <!-- BEGIN Dropdown -->
+          <div class="dropdown">
+            <button class="btn btn-label-info btn-icon" data-bs-toggle="dropdown">
+              <i class="far fa-comments"></i>
+              <div class="btn-marker">
+                <i class="marker marker-dot text-danger"></i>
+              </div>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end dropdown-menu-wide dropdown-menu-animated overflow-hidden py-0">
+              {% include "./header-chat.njk" %}
+            </div>
+          </div>
+          <!-- END Dropdown -->
+
+          <button class="btn btn-label-danger btn-icon" id="logout-trigger">
+            <i class="fa fa-door-open"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- END Header Holder -->
+
+  </div>
+  <!-- END Desktop Sticky Header -->
+
+  <!-- BEGIN Mobile Sticky Header -->
+  <div class="sticky-header" id="sticky-header-mobile">
+
+    <!-- BEGIN Header Holder -->
+    <div class="header-holder header-holder-mobile">
+      <div class="header-container {{ container_class }}">
+        <div class="header-wrap">
+          <button class="btn btn-label-info btn-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navigation">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+        <div class="header-wrap header-wrap-block">
+          <h4 class="header-brand">{{ defaults.brand_name }}</h4>
+        </div>
+        <div class="header-wrap">
+          <button class="btn btn-label-danger btn-icon" id="logout-trigger">
+            <i class="fa fa-door-open"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- END Header Holder -->
+  
+  </div>
+  <!-- END Mobile Sticky Header -->
+
+</div>
+<!-- END Header -->
+
+<script type="module">
+  import { signOut } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+  
+  $('#logout-trigger').on('click', async () => {
+    // Logout function
+    await signOut(window.firebaseAuth);
+    // Redirect to login page
+    window.location.replace("{{ defaults.login_path }}");
+  });
+</script>

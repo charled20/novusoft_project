@@ -1,0 +1,105 @@
+{% from "components/variables.njk" import defaults %}
+
+{% set body_class = classnames([
+  {
+    enabled: enable_preload | default(defaults.enable_preload),
+    class_name: "preload-active"
+  },
+  {
+    enabled: enable_aside | default(defaults.enable_aside),
+    class_name: "aside-active"
+  },
+  {
+    enabled: enable_sidebar | default(defaults.enable_sidebar),
+    class_name: "sidebar-active"
+  }
+]) %}
+
+{% if enable_container_fluid | default(defaults.enable_container_fluid) %}
+  {% set container_class = "container-fluid g-4" %}
+{% else %}
+  {% set container_class = "container g-4" %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en" dir="{{ direction }}" data-theme="{{ defaults.theme }}">
+  <head>
+    <!-- BEGIN Import Firebase Auth Scripts -->
+    {% if enable_firebase | default(defaults.enable_firebase) %}
+      {% include 'components/auth/firebase-instance.njk' %}
+
+      {% if enable_auth %}
+        {% include 'components/auth/firebase-validate-user.njk' %}
+      {% endif %}
+      {% if enable_guest and not enable_auth %}
+        {% include 'components/auth/firebase-validate-guest.njk' %}
+      {% endif %}
+    {% endif %}
+  
+    <!-- BEGIN Import Analytics Scripts -->
+    {% include 'components/analytics/analytics-head.njk' %}
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    
+    {% for link in defaults.css_links[direction] | array_concat(css_links) %}
+      <link href="{{ link }}" rel="stylesheet">
+    {% endfor %}
+
+    <link href="{{ defaults.favicon }}" rel="shortcut icon" type="image/x-icon">
+    <title>{{ page_title }} | {{ defaults.brand_name }}</title>
+  </head>
+  <body class="{{ body_class }}">
+
+    {% if enable_preload | default(defaults.enable_preload) %}
+      {% include defaults.components.preload %}
+    {% endif %}
+
+    <!-- BEGIN Page Holder -->
+    <div class="holder">
+
+      {% if enable_sidebar | default(defaults.enable_sidebar) %}
+        {% include defaults.components.sidebar %}
+      {% endif %}
+
+      <!-- BEGIN Page Wrapper -->
+      <div class="wrapper {{ content_wrapper_class }}">
+
+        {% if enable_header | default(defaults.enable_header) %}
+          {% include defaults.components.header %}
+        {% endif %}
+
+        <!-- BEGIN Page Content -->
+        <div class="content">
+          <div class="{{ container_class }}">
+            {% block content %}{% endblock %}
+          </div>
+        </div>
+        <!-- END Page Content -->
+
+        {% if enable_footer | default(defaults.enable_footer) %}
+          {% include defaults.components.footer %}
+        {% endif %}
+
+      </div>
+      <!-- END Page Wrapper -->
+
+      {% if enable_aside | default(defaults.enable_aside) %}
+        {% include defaults.components.aside %}
+      {% endif %}
+
+    </div>
+    <!-- END Page Holder -->
+
+    {% for component in defaults.components.offcanvas %}
+      {% include component %}
+    {% endfor %}
+
+    {% block offcanvas %}{% endblock %}
+
+    {% for link in defaults.js_links | array_concat(js_links) %}
+      <script type="text/javascript" src="{{ link }}"></script>
+    {% endfor %}
+
+  </body>
+</html>

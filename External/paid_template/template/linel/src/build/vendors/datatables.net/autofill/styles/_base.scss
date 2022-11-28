@@ -1,0 +1,124 @@
+// Handle button on right bottom of table cell
+// Will show if you hover the cell
+
+.dt-autofill-handle {
+  position: absolute;
+  height: $datatable-autofill-handle-size;
+  width: $datatable-autofill-handle-size;
+  background: $datatable-autofill-handle-color;
+  cursor: pointer;
+  z-index: 102;
+
+  .dtk-focus-alt & {
+    background: $datatable-autofill-handle-focus-color;
+  }
+}
+// Border to mark selected area
+.dt-autofill-select {
+  background: $datatable-autofill-select-color;
+  position: absolute;
+  z-index: 1001;
+
+  &.bottom,
+  &.top {
+    height: $datatable-autofill-select-width;
+    transform: translateY(-50%);
+  }
+
+  &.left,
+  &.right {
+    width: $datatable-autofill-select-width;
+    transform: translateX(-50%);
+  }
+}
+// Modal for showing fill options
+.dt-autofill-list {
+  position: fixed;
+  width: $datatable-autofill-list-width;
+  padding: $datatable-autofill-list-padding;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: $zindex-modal + 1;
+  background: $datatable-autofill-list-bg;
+  border: $datatable-autofill-list-border-width solid $datatable-autofill-list-border-color;
+  @include border-radius($datatable-autofill-list-border-radius);
+
+  // Options list
+  ul {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: $datatable-autofill-list-item-padding-y $datatable-autofill-list-item-padding-x;
+      border-bottom: $datatable-autofill-list-item-border-width solid $datatable-autofill-list-item-border-color;
+
+      .dt-autofill-input {
+        display: inline-block;
+        width: $datatable-autofill-input-width;
+        margin: 0 $datatable-autofill-input-spacer;
+      }
+
+      .dt-autofill-question {
+        color: $datatable-autofill-list-item-color-light;
+        @include font-size($datatable-autofill-list-item-font-size);
+        font-weight: $datatable-autofill-list-item-font-weight;
+
+        input[type=number] {
+          display: inline-block;
+          width: $datatable-autofill-input-width;
+          margin: 0 $datatable-autofill-input-spacer;
+          padding: $input-padding-y $input-padding-x;
+          font-family: $input-font-family;
+          @include font-size($input-font-size);
+          font-weight: $input-font-weight;
+          line-height: $input-line-height;
+          color: $input-color;
+          background-color: $input-bg;
+          background-clip: padding-box;
+          border: $input-border-width solid $input-border-color;
+          appearance: none;
+          @include border-radius($input-border-radius, 0);
+          @include transition($input-transition);
+
+          // Customize the `:focus` state to imitate native WebKit styles.
+          &:focus {
+            color: $input-focus-color;
+            background-color: $input-focus-bg;
+            border-color: $input-focus-border-color;
+            outline: 0;
+          }
+
+          // Placeholder
+          &::placeholder {
+            color: $input-placeholder-color;
+            // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+            opacity: 1;
+          }
+        }
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+// Modal backdrop
+.dt-autofill-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: $datatable-autofill-list-backdrop-bg;
+  opacity: $datatable-autofill-list-backdrop-opacity;
+  top: 0;
+  left: 0;
+  z-index: $zindex-modal;
+}

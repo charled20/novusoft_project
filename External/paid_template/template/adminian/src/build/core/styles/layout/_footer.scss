@@ -1,0 +1,13 @@
+.footer {
+	width: 100%;
+	padding: 0 $grid-gutter-width;
+	margin-bottom: $grid-gutter-width;
+}
+
+.footer-inner {
+	color: $footer-color;
+	background: $footer-bg;
+	padding: $footer-padding-y $footer-padding-x;
+	border: $footer-border-width solid $footer-border-color;
+	@include border-radius($footer-border-radius);
+}
