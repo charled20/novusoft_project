@@ -1,1 +1,0 @@
-"use strict";$(function(){$(".jstree").jstree({plugins:["types"],core:{themes:{ellipsis:!0}},types:{default:{icon:"far fa-folder"},file:{icon:"far fa-file"}}})}),$(function(){var e=new Date;$("#copyright-year").html(e.getFullYear())});
