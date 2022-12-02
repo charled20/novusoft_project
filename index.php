@@ -94,11 +94,103 @@
 
             <!--Novusoft Customized Dashboard Items-->
             <li class="nav-item">
-                    <span class="nav-link collapsed">Administration</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdmin"
+                    aria-expanded="true" aria-controls="collapseAdmin">
+                    <span>Administration</span>
+                </a>
+                <div id="collapseAdmin" class="collapse" aria-labelledby="headingAdmin" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="#">Choose Company</a>
+                        <a class="collapse-item" href="#">Exchange Rates</a>
+                        <a class="collapse-item" href="#" data-toggle="collapse" data-target="#collapseSysInit"
+                            aria-expanded="true" aria-controls="collapseSysInit">
+                            <span>System Initialization</span>
+                        </a>
+                            <div id="collapseSysInit" class="collapse" aria-labelledby="headingSysInit" data-parent="#collapseAdmin">
+                                <div class="py-1 collapse-inner rounded">
+                                    <a class="collapse-item" href="#">Company Details</a>
+                                    <a class="collapse-item" href="#" data-toggle="modal" data-target="#admin_gen_settings">General Settings</a>
+                                    <a class="collapse-item" href="#" data-toggle="modal" data-target="#posting_periods">Posting Periods</a>
+                                    <a class="collapse-item" href="#">Authorizations</a>
+                                    <a class="collapse-item" href="#">Document Numbering</a>
+                                    <a class="collapse-item" href="#">Document Settings</a>
+                                    <a class="collapse-item" href="#">Print Preferences</a>
+                                    <a class="collapse-item" href="#">Menu Structure</a>
+                                    <a class="collapse-item" href="#">Menu Alias Searching</a>
+                                    <a class="collapse-item" href="#">E-mail Settings</a>
+                                    <a class="collapse-item" href="#">Opening Balances</a>
+                                    <a class="collapse-item" href="#">Implementation Centre</a>
+                                    <a class="collapse-item" href="#">Tooltip Preview</a>
+                                </div>
+                            </div>
+                        <a class="collapse-item" href="#" data-toggle="collapse" data-target="#collapseAdminSetup"
+                            aria-expanded="true" aria-controls="collapseAdminSetup">
+                            <span>Setup</span>
+                        </a>
+                        <div id="collapseAdminSetup" class="collapse" aria-labelledby="headingSysInit" data-parent="#collapseAdmin">
+                                <div class="py-1 collapse-inner rounded">
+                                    <a class="collapse-item" href="#">General</a>
+                                    <a class="collapse-item" href="#">Financials</a>
+                                    <a class="collapse-item" href="#">Opportunities</a>
+                                    <a class="collapse-item" href="#">Sales</a>
+                                    <a class="collapse-item" href="#">Purchasing</a>
+                                    <a class="collapse-item collapsed" href="#" data-toggle="collapse" data-target="#collapseAdminBP"
+                                        aria-expanded="true" aria-controls="collapseAdminBP">
+                                        <span>Business Partners</span>
+                                    </a>
+                                        <div id="collapseAdminBP" class="collapse" aria-labelledby="headingAdminSetup" data-parent="#collapseAdminSetup">
+                                            <div class="py-1 collapse-inner rounded">
+                                            <a class="collapse-item" href="#">Countries</a>
+                                            <a class="collapse-item" href="#">Address Formats</a>
+                                            <a class="collapse-item" href="#">Customer Groups</a>
+                                            <a class="collapse-item" href="#">BP Properties</a>
+                                            <a class="collapse-item" href="#">BP Priorities</a>         
+                                            <a class="collapse-item" href="#">Dunning Levels</a>
+                                            <a class="collapse-item" href="#">Dunning Terms</a>
+                                            <a class="collapse-item" href="#" data-toggle="modal" data-target="#admin_payment_terms">Payment Terms</a>
+                                            <a class="collapse-item" href="#">Payment Blocks</a>
+                                            <a class="collapse-item" href="#">Target Group</a>
+                                            <a class="collapse-item" href="#">E-mail Group</a>
+                                            </div>
+                                        </div>
+                                    <a class="collapse-item" href="#">Banking</a>
+                                    <a class="collapse-item" href="#">Stock Management</a>
+                                    <a class="collapse-item" href="#">Resources</a>
+                                    <a class="collapse-item" href="#">Service</a>
+                                    <a class="collapse-item" href="#">Project Management</a>
+                                    <a class="collapse-item" href="#">Production</a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
             </li>
 
             <li class="nav-item">
-                    <span class="nav-link collapsed">Financials</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFinancials"
+                    aria-expanded="true" aria-controls="collapseFinancials">
+                    <span>Financials</span>
+                </a>
+                <div id="collapseFinancials" class="collapse" aria-labelledby="headingFinancials" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="#" data-toggle="modal" data-target="#coa">Charts of Accounts</a>
+                        <a class="collapse-item" href="#">Journal Entry</a>
+                        <a class="collapse-item" href="#">Journal Vouchers</a>
+                        <a class="collapse-item" href="#">Posting Templates</a>
+                        <a class="collapse-item" href="#">Recurring Postings</a>
+                        <a class="collapse-item" href="#">Reverse Transactions</a>
+                        <a class="collapse-item" href="#">Exchange Rate Differences</a>
+                        <a class="collapse-item" href="#">Conversion Differences</a>
+                        <a class="collapse-item" href="#">Financial Report Templates</a>
+                        <a class="collapse-item" href="#">Process Checklist</a>
+                        <a class="collapse-item" href="#">Document Printing</a>
+                        <a class="collapse-item" href="#">Journal Voucher Report</a>
+                        <a class="collapse-item" href="#">Fixed Assets</a>
+                        <a class="collapse-item" href="#">Internal Reconciliations</a>
+                        <a class="collapse-item" href="#">Budget Setup</a>
+                        <a class="collapse-item" href="#">Cost Accounting</a>
+                        <a class="collapse-item" href="#">Financial Reports</a>
+                    </div>
+                </div>
             </li>
 
             <li class="nav-item">
@@ -362,6 +454,82 @@
                     </div>
                 </div>
                 </div>
+
+                <!-- Chart of Accounts Modal -->
+                <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" id="coa" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary">
+                            <h5 class="modal-title text-light" id="coa_h5">Chart of Accounts</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                        <div class="modal-body">
+                                <?php include 'Pages/coa.php'; ?>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <!--Admin // General Settings Modal -->
+                <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" id="admin_gen_settings" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary">
+                            <h5 class="modal-title text-light" id="coa_h5">General Settings</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                        <div class="modal-body">
+                                <?php include 'Pages/admin_gen_settings.php'; ?>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <!--Admin Payment Term Modal -->
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="admin_payment_terms" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header bg-secondary">
+                                <h5 class="modal-title text-light" id="admin_payment_terms_h5">Payment Terms - Setup</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                            </div>
+                            <div class="modal-body">
+                                    <?php include 'Pages/sub_pages/admin_pay_terms.php'; ?>
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Posting Periods Modal -->
+                <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" id="posting_periods" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header bg-secondary">
+                                <h5 class="modal-title text-light" id="posting_periods_h5">Posting Periods</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                            </div>
+                            <div class="modal-body">
+                                    <?php include 'Pages/posting_periods.php'; ?>
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <!--Novusoft Customized Modals-->
 
             
@@ -491,7 +659,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <div class="small text-gray-500">December 12, 2022</div>
                                         <span class="font-weight-bold">A new monthly report is ready to download!</span>
                                     </div>
                                 </a>
@@ -502,8 +670,8 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
+                                        <div class="small text-gray-500">December 7, 2022</div>
+                                        Php290.29 has been deposited into your account!
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -513,7 +681,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        <div class="small text-gray-500">December 2, 2022</div>
                                         Spending Alert: We've noticed unusually high spending for your account.
                                     </div>
                                 </a>
@@ -646,7 +814,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Php 40,000</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -664,7 +832,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Php 215,000</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
